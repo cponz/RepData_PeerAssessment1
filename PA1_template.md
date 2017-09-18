@@ -22,13 +22,14 @@ totalStepsByDay <- aggregate(steps ~ date,data, sum, rm.na = TRUE)
 ### Step 2: Make an histogram of the total number of steps by day
 
 
+
 ```r
 hist(totalStepsByDay$steps, col="red", xlab ="Total steps by day")
 ```
 
 ![](PA1_template_files/figure-html/Histogram_of_Total_number_of_steps_by_day-1.png)<!-- -->
 
-### Step 3: Calculate and report the mean and median of the total number of steps taken per day
+### Step 3: Calculate and report the mean and median of the total number of steps taken by day
 
 
 ```r
