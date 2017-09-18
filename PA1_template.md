@@ -156,7 +156,7 @@ print(diffMedian)
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-###Step 1: Create a new factor variable with two levels: weekday or weekend
+### Step 1: Create a new factor variable with two levels: weekday or weekend
 
 
 ```r
