@@ -23,7 +23,7 @@ totalStepsByDay <- aggregate(steps ~ date,data, sum, rm.na = TRUE)
 
 
 ```r
-hist(totalStepsByDay$steps, col="green", xlab ="Total steps by day")
+hist(totalStepsByDay$steps, col="red", xlab ="Total steps by day")
 ```
 
 ![](PA1_template_files/figure-html/Histogram of Total number of steps by day-1.png)<!-- -->
@@ -60,7 +60,7 @@ print(y)
 ```r
 avgStepsByInterval <- aggregate(steps ~ interval, data, mean, rm.na = TRUE)
 
-plot(avgStepsByInterval$interval,avgStepsByInterval$steps,type ="l",xlab="Interval", ylab = "Average number of steps")
+plot(avgStepsByInterval$interval,avgStepsByInterval$steps,type ="l",xlab="Interval", ylab = "Average  number of steps")
 ```
 
 ![](PA1_template_files/figure-html/Average number of steps by interval-1.png)<!-- -->
@@ -88,7 +88,7 @@ x <- sum(!complete.cases(data))
 
 The total number of missing values is 2304
 
-### Steps 2 & 3: Replace missing date with the average number of steps fo that interval and create a new data set with the missing values filled in
+### Steps 2 & 3: Replace missing date with the average number of steps for that interval and create a new data set with the missing values filled in
 
 ```r
 imputedData <-  merge(data,avgStepsByInterval, by = "interval")
@@ -96,13 +96,13 @@ imputedData$calculatedSteps <- with(imputedData,ifelse(is.na(steps.x),steps.y,st
 imputedData <- subset(imputedData, select =c("calculatedSteps","date","interval"))
 ```
 
-###Step 4.1: Make an histogram of the toal number of steps taken by day with the new calculated steps
+###Step 4.1: Make an histogram of the total number of steps taken by day with the new calculated steps
 
 
 ```r
 totalStepsByDay2 <- aggregate(calculatedSteps ~ date,imputedData, sum)
 
-hist(totalStepsByDay2$calculatedSteps, col="green", xlab ="Total steps by day")
+hist(totalStepsByDay2$calculatedSteps, col="blue", xlab ="Total steps by day")
 ```
 
 ![](PA1_template_files/figure-html/Histogram of Total number of steps by day with new values-1.png)<!-- -->
@@ -172,7 +172,7 @@ avgStepsByInterval2 <- aggregate(calculatedSteps ~ interval + dayType, imputedDa
 
 library(ggplot2)
 
-ggplot(avgStepsByInterval2, aes(interval,calculatedSteps))  + facet_grid(.~dayType) + labs(x = "Interval") + labs(y = "Average Calculated Steps") + geom_line() +  geom_smooth() 
+ggplot(avgStepsByInterval2, aes(interval,calculatedSteps))  + facet_grid(.~dayType) + labs(x = "Intervals") + labs(y = "Average Calculated Steps") + geom_line() +  geom_smooth() 
 ```
 
 ```
