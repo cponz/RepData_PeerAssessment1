@@ -26,7 +26,11 @@ totalStepsByDay <- aggregate(steps ~ date,data, sum, rm.na = TRUE)
 
 ### Step 2: Make an histogram of the total number of steps by day
 
+<<<<<<< HEAD
 ```{r Histogram_of_Total_number_of_steps_by_day}
+=======
+```{r Histogram of Total number of steps by day}
+>>>>>>> cdc7e43d5a76b35fe1a7151b43caa4cab408d808
 hist(totalStepsByDay$steps, col="red", xlab ="Total steps by day")
 ```
 
