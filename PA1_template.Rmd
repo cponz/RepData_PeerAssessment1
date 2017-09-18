@@ -72,7 +72,7 @@ x <- sum(!complete.cases(data))
 
 ```
 
-The total number of missing data is `r x`
+The total number of missing values is `r x`
 
 ### Steps 2 & 3: Replace missing date with the average number of steps fo that interval and create a new data set with the missing values filled in
 ```{r Replace missing data, results = "hide"}
@@ -136,6 +136,6 @@ avgStepsByInterval2 <- aggregate(calculatedSteps ~ interval + dayType, imputedDa
 
 library(ggplot2)
 
-ggplot(avgStepsByInterval2, aes(interval,calculatedSteps))  + facet_grid(.~dayType) + labs(x = "Interval") + labs(y = "Average Calculated Steps") + geom_point() +  geom_smooth() 
+ggplot(avgStepsByInterval2, aes(interval,calculatedSteps))  + facet_grid(.~dayType) + labs(x = "Interval") + labs(y = "Average Calculated Steps") + geom_line() +  geom_smooth() 
 ```
 
