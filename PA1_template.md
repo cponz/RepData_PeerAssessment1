@@ -26,7 +26,7 @@ totalStepsByDay <- aggregate(steps ~ date,data, sum, rm.na = TRUE)
 hist(totalStepsByDay$steps, col="red", xlab ="Total steps by day")
 ```
 
-![](PA1_template_files/figure-html/Histogram of Total number of steps by day-1.png)<!-- -->
+![](PA1_template_files/figure-html/Histogram_of_Total_number_of_steps_by_day-1.png)<!-- -->
 
 ### Step 3: Calculate and report the mean and median of the total number of steps taken per day
 
@@ -63,7 +63,7 @@ avgStepsByInterval <- aggregate(steps ~ interval, data, mean, rm.na = TRUE)
 plot(avgStepsByInterval$interval,avgStepsByInterval$steps,type ="l",xlab="Interval", ylab = "Average  number of steps")
 ```
 
-![](PA1_template_files/figure-html/Average number of steps by interval-1.png)<!-- -->
+![](PA1_template_files/figure-html/Average_number_of_steps_by_interval-1.png)<!-- -->
 
 ### Step 2: Identify which is the interval that contains the maximum number of steps
 
@@ -105,7 +105,7 @@ totalStepsByDay2 <- aggregate(calculatedSteps ~ date,imputedData, sum)
 hist(totalStepsByDay2$calculatedSteps, col="blue", xlab ="Total steps by day")
 ```
 
-![](PA1_template_files/figure-html/Histogram of Total number of steps by day with new values-1.png)<!-- -->
+![](PA1_template_files/figure-html/Histogram_of_Total_number_of_steps_by_day_with_new_values-1.png)<!-- -->
 
 ### Step 4.2: calculate the mean and the median of the new calculated steps
 
@@ -179,5 +179,5 @@ ggplot(avgStepsByInterval2, aes(interval,calculatedSteps))  + facet_grid(.~dayTy
 ## `geom_smooth()` using method = 'loess'
 ```
 
-![](PA1_template_files/figure-html/Average number of steps by interval with new values-1.png)<!-- -->
+![](PA1_template_files/figure-html/Average_number_of_steps_by_interval_with_new_values-1.png)<!-- -->
 

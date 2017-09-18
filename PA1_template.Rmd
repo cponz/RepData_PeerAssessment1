@@ -26,7 +26,7 @@ totalStepsByDay <- aggregate(steps ~ date,data, sum, rm.na = TRUE)
 
 ### Step 2: Make an histogram of the total number of steps by day
 
-```{r Histogram of Total number of steps by day}
+```{r Histogram_of_Total_number_of_steps_by_day}
 hist(totalStepsByDay$steps, col="red", xlab ="Total steps by day")
 ```
 
@@ -49,7 +49,7 @@ print(y)
 
 ### Step 1: Make a time series plot of the 5 minute interval and the average numbers of steps taken, averaged across all days
 
-```{r Average number of steps by interval}
+```{r Average_number_of_steps_by_interval}
 avgStepsByInterval <- aggregate(steps ~ interval, data, mean, rm.na = TRUE)
 
 plot(avgStepsByInterval$interval,avgStepsByInterval$steps,type ="l",xlab="Interval", ylab = "Average  number of steps")
@@ -84,7 +84,7 @@ imputedData <- subset(imputedData, select =c("calculatedSteps","date","interval"
 
 ###Step 4.1: Make an histogram of the total number of steps taken by day with the new calculated steps
 
-```{r Histogram of Total number of steps by day with new values}
+```{r Histogram_of_Total_number_of_steps_by_day_with_new_values}
 totalStepsByDay2 <- aggregate(calculatedSteps ~ date,imputedData, sum)
 
 hist(totalStepsByDay2$calculatedSteps, col="blue", xlab ="Total steps by day")
@@ -131,7 +131,7 @@ imputedData$dayType <- with(imputedData,ifelse((weekdays(date) == "Saturday" | w
 
 ###Step 2: Make a panel plot containing a time series plot of the 5-minute interval  and the average number of steps taken, averaged across all weekday days or weekend days 
 
-```{r Average number of steps by interval with new values}
+```{r Average_number_of_steps_by_interval_with_new_values}
 avgStepsByInterval2 <- aggregate(calculatedSteps ~ interval + dayType, imputedData, mean)
 
 library(ggplot2)
